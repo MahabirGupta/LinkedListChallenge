@@ -22,9 +22,11 @@ public class Main {
         System.out.println(choice);
         switch (choice){
             case "F" , "FORWARD":
+                forward();
                 System.out.println("Move Forward");
                 break;
             case "B" , "BACKWARD":
+                backward();
                 System.out.println("Move Backward");
                 break;
             case "L" , "LIST PLACES":
@@ -38,34 +40,43 @@ public class Main {
         Brisbane        917
         Darwin          3972
         Melbourne       877
-        Perth           3923""";System.out.println(placesToVisit);
+        Perth           3923""";
+                System.out.println(placesToVisit);
+                break;
+            case "Quit","Q":
+                System.out.println("Thank you and Good Bye!");
         }
 
+    }
+
+    private static void backward() {
+    }
+
+    private static void forward() {
+
+        listPlaces();
     }
 
     private static void listPlaces() {
 
-        LinkedList<String> name = new LinkedList<>();
-        name.add(0,"Sydney");
-        name.add(1,"Adelaide");
-        name.add(2,"Alice Springs");
-        name.add(3,"Brisbane");
-        name.add(4,"Darwin");
-        name.add(5,"Melbourne");
-        name.add(6,"Perth");
-        System.out.println(name);
-        ListIterator<String> iterator = name.listIterator();
-        String startingTown = name.getFirst();
+        LinkedList<Town> towns = new LinkedList<>();
+        towns.add(new Town("Adelaide",1374));
+        towns.add(new Town("Alice Springs",2771));
+        towns.add(new Town("Brisbane",917));
+        towns.add(new Town("Darwin",3972));
+        towns.add(new Town("Melbourne",877));
+        towns.add(new Town("Perth",3923));
+//        System.out.println(towns);
+        ListIterator<Town> iterator = towns.listIterator();
+
         while (iterator.hasNext()){
-            var town = iterator.next();
+            var town1 = iterator.next();
 //            System.out.println(town);
 //            var previousTown = town;
-            System.out.println(startingTown + " to " + town);
+            System.out.println(town1);
         }
         System.out.println();
-        Iterator iterator1 = name.iterator();
-        while (iterator1.hasNext()){
-            System.out.println(iterator1.next());
+
         }
     }
-}
+
